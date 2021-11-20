@@ -1,19 +1,35 @@
 CREATE TABLE product (
-  product_id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(86) NOT NULL,
-  description VARCHAR(86) NOT NULL,
-  price INTEGER NOT NULL,
-  image_url TEXT NOT NULL
+  product_id SERIAL PRIMARY KEY,
+  description TEXT,
+  image_url TEXT
 );
 
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(64) NOT NULL,
-    password VARCHAR(64) NOT NULL
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(64) NOT NULL,
+  password VARCHAR(64) NOT NULL
 );
 
 CREATE TABLE bag (
-    id SERIAL PRIMARY KEY,
-    bag_id INTEGER REFERENCES users(id),
-    
-)
+  product_id SERIAL PRIMARY KEY,
+  bag_id INTEGER REFERENCES users(id),
+  description TEXT,
+  image_url TEXT
+);
+
+CREATE TABLE irons (
+  product_id SERIAL PRIMARY KEY,
+  iron_id INTEGER REFERENCES product(product_id),
+  description TEXT,
+  image_url TEXT
+);
+
+CREATE TABLE custom (
+  product_id SERIAL PRIMARY KEY,
+  custom_id INTEGER REFERENCES users(id),
+  description TEXT,
+  image_url TEXT,
+  shaft INTEGER,
+  loft INTEGER,
+  smash INTEGER
+);

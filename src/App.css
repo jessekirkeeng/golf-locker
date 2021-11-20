@@ -8,6 +8,11 @@
   }
 }
 
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -21,4 +26,12 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.img {
+  width: 140px;
+  height: 140px;
+  border-radius: 30%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  margin: 0 5px;
 }

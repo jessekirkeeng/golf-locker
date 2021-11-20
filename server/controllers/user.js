@@ -21,12 +21,13 @@ module.exports = {
 },
 login: async (req, res, next) => {
 	const { username, password } = req.body;
-	const findUser = await req.app.get('db').find_user([username]);
+	const findUser = await req.app.get('db').user.find_user([username]);
 	const user = findUser[0];
 if (!user) {
 	return res.status(401).send('No user');
 	}
-	const isAuthenticated = bcrypt.compareSync(password, user.hash);
+	// console.log(user, password)
+	const isAuthenticated = bcrypt.compareSync(password, user.password);
 if (!isAuthenticated) {
 	return res.status(403).send('Incorrect password');
 	}
@@ -41,8 +42,9 @@ logout: (req, res) => {
 	return res.sendStatus(200);
 },
 getUser: (req, res, next) => {
-	const { username, password } = req.body
-	if (username === user.username && password === user.password) {
+	const { username, password } = req.body;
+	const {user} = req.session;
+	if (user && username === user.username && password === user.password) {
 			req.session.user = user
 			next()
 	} else {

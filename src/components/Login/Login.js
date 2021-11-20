@@ -1,42 +1,46 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios'
-import { updateUser } from '../../redux/reducer';
-import { connect } from 'react-redux'
+import React, { useState } from "react";
+import axios from 'axios';
 import styled from 'styled-components';
 
 const Title = styled.header`
-	display: flex;
+  display: flex;
+  justify-content: center;
   font-family: 'Montserrat', sans-serif;
-	font-size: 65px;
-	margin-bottom: 45px;`
-
+	font-size: 65px;`
 const Div = styled.div`
 	width: 100%;
   height: 100vh;
 	background-color: #064a2ce9;	
-	display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;`
+const Cont = styled.div`
+  border-radius: 8px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.35);
+  background-color: #0a613ce9;
+  width: 75vw;
+  height: 55vh;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-`
+  justify-content: space-around;
+  padding: 20px;`
+const Button = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 55%;`
 const Button1 = styled.button`
-  background-color: #4CAF50; /* Green */
-  border: 3px solid black;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-`
-const Button2 = styled.button`
-  background-color: #4CAF50; /* Green */
-  border: 3px solid black;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-`
+  border-radius: 1px;
+  background-color: #17ab6be9;
+  padding: 10px 20px;
+  border: 1px solid black;
+  cursor: pointer;`
+const Input = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55%;`
 
 const Login = (props) => {
 	const [user, setUser] = useState({
@@ -44,49 +48,43 @@ const Login = (props) => {
     password: ''
 })
 
-	useEffect(() => {
-		axios.get('/api/auth/user')
-    .then(res => res.data.updateUser(res.data))
-		.catch(err => {
-			console.log(err)
-	})}, [])
-
-	const login =()=> {
-		axios.post('/api/auth/login', user)
-			.then(res => {
-				props.history.push('./Products/Products')
-		})
-			.catch(err => {
-				console.log(err)
-		})}
+  const login =()=> {
+    axios.post('/api/auth/login', user)
+    .then(res => props.history.push('./products'))
+    .catch(err => console.log(err)
+)}
 
 	const register =()=> {
     axios.post('/api/auth/register', user)
-      .then(res => {
-        props.history.push('./Products/Products')
-      })
-      .catch(err => {
-        console.log(err)
-      })}
+    .then(res => props.history.push('./products'))
+    .catch(err => console.log(err)
+)}
 			
-		return (
-			<Div>
-				<Title className="title">golf locker</Title>
-				<div>
+	return (
+		<Div>
+      <Cont>
+				<Title>golf locker</Title>
+				<Input>
           <label>username</label>
-          <input type="text" placeholder="username" onChange={(e) => setUser({ username: e.target.value })} />
-					<Button1 onClick={login}type='submit'>log in</Button1>
-        </div>
-				
-				<div>
+          <input 
+            type="text" 
+            placeholder="username" 
+            onChange={(e) => setUser({ ...user, username: e.target.value })} />
+        </Input>
+				<Input>
           <label>password</label>
-          <input type="text" placeholder="password" onChange={(e) => setUser({ password: e.target.value })} />
-					<Button2 onClick={register}> register </Button2>
-        </div>
-			</Div>
-		)
+          <input 
+            type="password" 
+            placeholder="password" 
+            onChange={(e) => setUser({ ...user, password: e.target.value })} />
+        </Input>
+        <Button>
+          <Button1 onClick={login}type='submit'>log in</Button1>
+          <Button1 onClick={register}> register </Button1>
+        </Button>
+      </Cont>
+		</Div>
+	)
 }
 
-const mapStateToProps = state => state
-
-export default connect(mapStateToProps, { updateUser })(Login)
+export default Login

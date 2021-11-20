@@ -1,30 +1,30 @@
 let initialState = {
 	username: '',
-	password: ''
+	password: '',
+	cart: []
 };
 
-const UPDATE_USER = 'UPDATE_USER';
 const LOGOUT_USER = 'LOGOUT_USER';
+const ADD_PURCHASE = 'ADD_PURCHASE';
 
-export const updateUser = (data) => {
-	return {
-		type: UPDATE_USER,
-		payload: data
-	}
-}
 export const logout = () => {
 	return {
 			type: LOGOUT_USER
 	}
 }
+export const addItem = (data) => {
+	return {
+			type: ADD_PURCHASE,
+			payload: data
+	}
+}
 
 export default function reducer(state = initialState, action) {
 	switch (action.type){
-		case UPDATE_USER:
-			return {...state, ...action.payload}
 		case LOGOUT_USER:
       return {...state, }
-		default:
-      return state;
+		case ADD_PURCHASE:
+			return { ...state, cart: action.payload }
+		default: return state;
 	}
 }
