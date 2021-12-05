@@ -23,15 +23,3 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-.img {
-  width: 140px;
-  height: 140px;
-  border-radius: 30%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  margin: 0 5px;
-}

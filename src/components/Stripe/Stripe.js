@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from "react";
+const stripe = require('stripe')('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');
+
+const paymentIntent = stripe.paymentIntents.create({
+  amount: .51,
+  currency: 'USD',
+  automatic_payment_methods: {enabled: true},
+});
 
 const ProductDisplay = () => (
+  <div>
+  <head>
+    <title>buy new golf club</title>
+  </head>
   <section>
-    <div className="product">
-      <img
-        src="https://i.imgur.com/EHyR2nP.png"
-        alt="The cover of Stubborn Attachments"
-      />
-      <div className="description">
-      <h3>Stubborn Attachments</h3>
-      <h5>$20.00</h5>
-      </div>
-    </div>
     <form action="/create-checkout-session" method="POST">
       <button type="submit">
         Checkout
       </button>
     </form>
   </section>
+  </div>
 );
 
 const Message = ({ message }) => (
@@ -26,11 +28,11 @@ const Message = ({ message }) => (
   </section>
 );
 
+
 export default function Stripe() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
 
     if (query.get("success")) {

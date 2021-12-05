@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { logout } from '../../redux/reducer';
-import { addItem } from "../../redux/bagReducer";
+import { addItem } from "../../redux/reducer";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';

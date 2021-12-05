@@ -1,0 +1,25 @@
+@media (min-width: 500px){
+	.container {
+	border-radius: 8px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.35);
+  background-color: #0a613ce9;
+  width: 455px;
+  height: 55vh;
+	}
+	.title{
+		margin: 0;
+	}
+	.input{
+		padding: 0;
+	}
+}
+@media (min-width: 800px){
+	.container{
+		width: 650px;
+		height: 65vh;
+	}
+	.title{
+		margin: 0;
+		padding-top: 30px;
+	}
+}

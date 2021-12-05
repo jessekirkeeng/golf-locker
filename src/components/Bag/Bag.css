@@ -1,0 +1,32 @@
+.btn:hover {
+	background-color: #ffffffe9;
+	transition: all 1s ease;
+}
+.btn-:hover {
+	background-color: rgb(232, 170, 165);
+	transition: all 1s ease;
+}
+
+@media(min-width: 800px){
+	.links {
+		min-height: 20vh;
+	}
+	.btn {
+		padding: 5px 10px 5px 10px;
+		font-size: 18px;
+	}
+	.btn- {
+		padding: 5px 10px 5px 10px;
+		font-size: 18px;
+	}
+}
+@media(min-width: 500px){
+	.map {
+		flex-wrap: wrap;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		border-radius: 2px;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+	}
+}

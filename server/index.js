@@ -1,11 +1,11 @@
 require("dotenv").config();
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')('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');
 const express = require('express')
 const massive = require("massive");
 const session = require("express-session");
 const { main, getCustomClubs, addToCustom, changeSetting } = require('./controllers/customCtrl')
 const { login, logout, register, getUser } = require('./controllers/user');
-const { getProducts, getIrons, readBag, deleteProduct, addToBag } = require('./controllers/product');
+const { getProducts, readBag, deleteProduct, addToBag } = require('./controllers/product');
 
 const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env;
 
@@ -29,21 +29,30 @@ app.use(
 );
 app.use(express.json());
 
+app.get('/secret', async (req, res) => {
+  const paymentIntent = await stripe.paymentIntents.create({
+    automatic_payment_methods: {enabled: true},
+  });
+  res.json({client_secret: intent.client_secret});
+});
+
 app.post('/create-checkout-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
-        // Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-        price: '.01',
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'golf club',
+          },
+          unit_amount: 1000,
+        },
         quantity: 1,
       },
     ],
-    payment_method_types: [
-      'card',
-    ],
     mode: 'payment',
-    success_url: `/api/products`,
-    cancel_url: `/api/products`,
+    success_url: `http://localhost:3030/#/products`,
+    cancel_url: `http://localhost:3030/#/`,
   });
   res.redirect(303, session.url);
 });
@@ -54,13 +63,12 @@ app.post('/api/auth/register', register);
 app.get('/api/auth/user', getUser);
 
 app.get('/api/products', getProducts)
-app.get('/api/products/irons', getIrons)
 app.delete('/api/products/:id', deleteProduct)
 
 app.get('/api/customs', getCustomClubs)
 app.post('/api/customClub', addToCustom)
-app.delete('/api/customDelete/:id', deleteProduct)
 app.put('/api/custom/setting/:id', changeSetting)
+app.delete('/api/customDelete/:id', deleteProduct)
 
 app.get('/api/bag', readBag)
 app.post('/api/bags', addToBag)

@@ -1,7 +1,29 @@
-@media (max-width: 500px) {
-	header {
-		background-color: gray;
-		height: 25vh;
-		
+.button:hover {
+	background-color: rgb(255, 255, 255);
+	transition: all .5s ease;
+}
+
+@media(min-width: 800px) {
+	.map{
+		min-padding-top: 80px;
+	}
+	.linked {
+		min-height: 80px;
+	}
+	.button {
+		padding: 5px 10px 5px 10px;
+		font-size: 18px;
+	}
+}
+
+@media (min-width: 500px) {
+	.map {
+		padding-top: 80px;
+		flex-wrap: wrap;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		border-radius: 2px;
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 	}
 }

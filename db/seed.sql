@@ -17,19 +17,9 @@ CREATE TABLE bag (
   image_url TEXT
 );
 
-CREATE TABLE irons (
-  product_id SERIAL PRIMARY KEY,
-  iron_id INTEGER REFERENCES product(product_id),
-  description TEXT,
-  image_url TEXT
-);
-
 CREATE TABLE custom (
   product_id SERIAL PRIMARY KEY,
   custom_id INTEGER REFERENCES users(id),
   description TEXT,
   image_url TEXT,
-  shaft INTEGER,
-  loft INTEGER,
-  smash INTEGER
 );
