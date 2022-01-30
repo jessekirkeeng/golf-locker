@@ -46,6 +46,8 @@ app.use(
 );
 app.use(express.json());
 
+app.use(express.static(`${__dirname}/../build`))
+
 app.get('/secret', async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({
     automatic_payment_methods: {enabled: true},
@@ -81,7 +83,7 @@ app.get('/api/auth/user', getUser);
 
 app.get("/api/auth/me", getMe);
 app.post('/api/bagged/add/:id', addedClub);
-app.get('/api/bagged/:id', getClubs)
+app.get('/api/bagged/:id', getClubs);
 
 app.get('/api/products', getProducts);
 app.delete('/api/products/:id', deleteProduct);
@@ -97,4 +99,6 @@ app.post('/api/nodeMailer', main);
 
 app.post('/api/cart', addToCart);
 
-app.listen(SERVER_PORT, () => console.log(`${SERVER_PORT}`));
+const port = process.env.SERVER_PORT || 3030;
+
+app.listen(port, () => console.log(`${SERVER_PORT}`));
