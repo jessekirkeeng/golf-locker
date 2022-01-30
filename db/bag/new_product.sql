@@ -1,3 +1,3 @@
 INSERT INTO bag 
-(bag_id, description, image_url) 
+(description, users, prod) 
 VALUES ($1, $2, $3);

@@ -23,3 +23,10 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.app-main {
+  background-color: #0a613ce9;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}

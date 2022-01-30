@@ -9,9 +9,9 @@ const paymentIntent = stripe.paymentIntents.create({
 
 const ProductDisplay = () => (
   <div>
-  <head>
+  <header>
     <title>buy new golf club</title>
-  </head>
+  </header>
   <section>
     <form action="/create-checkout-session" method="POST">
       <button type="submit">

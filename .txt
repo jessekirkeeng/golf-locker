@@ -1,0 +1,29 @@
+https://www.taylormadegolf.com/dw/image/v2/AAIS_PRD/on/demandware.static/-/Sites-tmag-master-catalog/en_US/v1637312967927/zoom/JJI01_zoom_D.jpg?sw=900&sh=900&sm=fit
+
+https://cdn-vzn.yottaa.net/58f0c36232f01c6abd17a924/www.callawaygolf.com/v~4b.42/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_US/v1637299621040/sits/drivers-2021-epic-max/drivers-2021-epic-max___1.png?sw=750&sfrm=png&yocs=y_
+
+https://www.srixon.com/on/demandware.static/-/Sites-masterCatalog_ClevelandGolf/default/dwa0be8fd7/images/large/ZX5_Driver_V1_Lrg.jpg
+
+https://www.taylormadegolf.com/on/demandware.static/-/Sites-tmag-master-catalog/en_US/v1637312967927/zoom/TA156_zoom_D2.jpg
+
+https://cdn-vzn.yottaa.net/58f0c36232f01c6abd17a924/www.callawaygolf.com/v~4b.42/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_US/v1637299621040/sits/irons-2021-apex/irons-2021-apex___1.png?sw=750&sfrm=png&yocs=y_
+
+https://www.srixon.com/on/demandware.static/-/Sites-masterCatalog_ClevelandGolf/default/dw5168342b/images/large/ZX7_Iron_V1_Lrg.jpg
+
+https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/01/19/5a626bac04729f363925c1e3_0318-PDI-Beauty-PXG-0311.png.rend.hgtvcom.1850.1850.suffix/1573234334743.png
+
+https://austads.com/pub/media/catalog/product//rdi/rdi/odyssey-white-hot-og-7-putter-121961-c_1.jpg
+
+
+const deleteProduct = (id) => {
+		axios.delete(`/api/products/${id}`)
+			.then(res => setBag(res.data))
+			.catch(err => console.log(err)
+			)
+	}
+	
+// const addToCustom = (description, image_url) => {
+		// 	axios.post('/api/customClub', { description, image_url })
+		// 		.then(res => setCustom(res.data))
+		// 		.catch(err => console.log(err))
+		// }

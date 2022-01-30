@@ -8,9 +8,9 @@
 }
 
 @media(min-width: 800px){
-	.links {
+	/* .links {
 		min-height: 20vh;
-	}
+	} */
 	.btn {
 		padding: 5px 10px 5px 10px;
 		font-size: 18px;

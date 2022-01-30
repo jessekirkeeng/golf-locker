@@ -51,4 +51,14 @@ getUser: (req, res, next) => {
 			res.status(403).send('Invalid username or password')
 }
 },
+getMe: (req, res) => {
+	
+	console.log(req.session)
+	const user = req.session.user;
+  if (user) {
+    res.status(200).send(user);
+  } else {
+    res.sendStatus(401);
+  }
+}
 }

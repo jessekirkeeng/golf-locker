@@ -1,24 +1,24 @@
-CREATE TABLE product (
-  product_id SERIAL PRIMARY KEY,
-  description TEXT,
-  image_url TEXT
-);
-
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR(64) NOT NULL,
   password VARCHAR(64) NOT NULL
 );
 
-CREATE TABLE bag (
-  product_id SERIAL PRIMARY KEY,
-  bag_id INTEGER REFERENCES users(id),
+CREATE TABLE product (
+  id SERIAL PRIMARY KEY,
   description TEXT,
   image_url TEXT
 );
 
+CREATE TABLE bag (
+  id SERIAL PRIMARY KEY,
+  description TEXT,
+  users INTEGER REFERENCES users(id),
+  prod INTEGER REFERENCES product(id)
+);
+
 CREATE TABLE custom (
-  product_id SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   custom_id INTEGER REFERENCES users(id),
   description TEXT,
   image_url TEXT,

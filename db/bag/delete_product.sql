@@ -1,5 +1,3 @@
 DELETE FROM bag
-WHERE product_id = $1;
-SELECT * 
-FROM bag
-WHERE bag_id = $2;
+WHERE users = $1
+AND description = $2;

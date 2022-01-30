@@ -1,14 +1,28 @@
-.button:hover {
-	background-color: rgb(255, 255, 255);
+
+.btn-1:hover {
+	background-color: #0c6d43e9;
+	cursor: pointer;
+	color: white;
 	transition: all .5s ease;
+}
+.linked:hover {
+	background-color: #0c6d43e9;
+	cursor: pointer;
+	color: white;
+	transition: all .5s ease;
+}
+.page {
+	color: white;
+  margin-left: 22vw;
+  font-size: larger;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
 }
 
 @media(min-width: 800px) {
 	.map{
 		min-padding-top: 80px;
-	}
-	.linked {
-		min-height: 80px;
 	}
 	.button {
 		padding: 5px 10px 5px 10px;

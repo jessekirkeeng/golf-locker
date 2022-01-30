@@ -47,5 +47,9 @@ module.exports = {
     db.custom.update_club(id, input, userId)
 		.then(product => res.status(200).send(product))
 		.catch(err => console.log(err))
+  },
+  addToCart: (req, res) => {
+    req.session.cart.push(req.body);
+    res.status(200).send(req.session.cart);
   }
 }
