@@ -6,6 +6,7 @@ import { UserContext } from "./../Sample/Sample";
 import './Product.css';
 import { NodeMail, MyBag, Logout,  } from "../Utility/Links";
 import { Items, Img, Driver, Links, ProductMap, Btnmap, H2 } from "../Utility/Styles";
+import User from '../Sample/User';
 
 const Products = () => {
 	const { user } = useContext(UserContext);
@@ -64,6 +65,7 @@ const Products = () => {
 				<Links className='linked'>
 					<MyBag className='btn-1' />
 					<NodeMail className='btn-1' />
+					<User className='btn-1' />
 					<Logout className='btn-1' />
 				</Links>
 				<ProductMap className='map'>

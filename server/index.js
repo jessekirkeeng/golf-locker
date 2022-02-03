@@ -23,6 +23,11 @@ const {
   addedClub,
   getClubs,
   deleteItem} = require('./controllers/product');
+const{
+  deleteUser,
+  updateUsername,
+  removeUsername,
+} = require('./controllers/auth');
 
 const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env;
 
@@ -76,12 +81,16 @@ app.post('/create-checkout-session', async (req, res) => {
   res.redirect(303, session.url);
 });
 
+app.delete("/api/auth/destroy/:id", deleteUser);
+app.put("/api/auth/update/:id", updateUsername);
+app.put("/api/auth/remove/:id", removeUsername);
+
 app.post('/api/auth/login', login);
 app.post('/api/auth/logout', logout);
 app.post('/api/auth/register', register);
 app.get('/api/auth/user', getUser);
-
 app.get("/api/auth/me", getMe);
+
 app.post('/api/bagged/add/:id', addedClub);
 app.get('/api/bagged/:id', getClubs);
 
@@ -99,6 +108,6 @@ app.post('/api/nodeMailer', main);
 
 app.post('/api/cart', addToCart);
 
-const port = process.env.SERVER_PORT || 3030;
+const port = process.env.PORT || 3030;
 
-app.listen(port, () => console.log(`${SERVER_PORT}`));
+app.listen(port, () => console.log(`${port}`));
