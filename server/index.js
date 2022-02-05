@@ -8,21 +8,23 @@ const {
   getCustomClubs, 
   addToCustom, 
   changeSetting, 
-  addToCart } = require('./controllers/customCtrl');
+} = require('./controllers/customCtrl');
+
 const { 
   login, 
   logout, 
   register, 
   getUser,
-  getMe} = require('./controllers/user');
+  getMe,
+} = require('./controllers/user');
+
 const { 
-  getProducts, 
-  readBag, 
-  deleteProduct, 
-  addToBag, 
+  getProducts,
   addedClub,
   getClubs,
-  deleteItem} = require('./controllers/product');
+  deleteItem,
+} = require('./controllers/product');
+
 const{
   deleteUser,
   updateUsername,
@@ -36,7 +38,7 @@ const app = express();
 massive({
 	connectionString: CONNECTION_STRING,
 	ssl: { rejectUnauthorized: false },
-}).then((db) => {
+}).then(db => {
 	app.set("db", db);
 	console.log("db connected");
 }).catch(err => console.log(err));
@@ -53,13 +55,8 @@ app.use(express.json());
 
 app.use(express.static(`${__dirname}/../build`))
 
-app.get('/secret', async (req, res) => {
-  const paymentIntent = await stripe.paymentIntents.create({
-    automatic_payment_methods: {enabled: true},
-  });
-  res.json({client_secret: intent.client_secret});
-});
-
+//*  Node Mailer  &  Stripe
+app.post('/api/nodeMailer', main);
 app.post('/create-checkout-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: [
@@ -80,33 +77,34 @@ app.post('/create-checkout-session', async (req, res) => {
   });
   res.redirect(303, session.url);
 });
+app.get('/secret', async (req, res) => {
+  const paymentIntent = await stripe.paymentIntents.create({
+    automatic_payment_methods: {enabled: true},
+  });
+  res.json({client_secret: intent.client_secret});
+});
 
-app.delete("/api/auth/destroy/:id", deleteUser);
-app.put("/api/auth/update/:id", updateUsername);
-app.put("/api/auth/remove/:id", removeUsername);
-
+// *  User
 app.post('/api/auth/login', login);
 app.post('/api/auth/logout', logout);
 app.post('/api/auth/register', register);
 app.get('/api/auth/user', getUser);
 app.get("/api/auth/me", getMe);
 
+// *  Products
+app.get('/api/products', getProducts);
 app.post('/api/bagged/add/:id', addedClub);
 app.get('/api/bagged/:id', getClubs);
 
-app.get('/api/products', getProducts);
-app.delete('/api/products/:id', deleteProduct);
-
+// *  Custom
 app.get('/api/customs', getCustomClubs);
 app.post('/api/customClub', addToCustom);
 app.put('/api/custom/setting/:id', changeSetting);
 app.delete('/api/customDelete/:id/:item', deleteItem);
+app.delete("/api/auth/destroy/:id", deleteUser);
+app.put("/api/auth/update/:id", updateUsername);
+app.put("/api/auth/remove/:id", removeUsername);
 
-app.get('/api/bag', readBag);
-app.post('/api/bags', addToBag);
-app.post('/api/nodeMailer', main);
-
-app.post('/api/cart', addToCart);
 
 const port = process.env.PORT || 3030;
 

@@ -4,6 +4,7 @@ import { UserContext } from "./Sample";
 import { useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import '../CSS/User.css'
+import { Button1 } from "../Utility/Styles";
 
 const UserSettings = () => {
   const [toggle, setToggle] = useState(false);
@@ -19,10 +20,10 @@ const UserSettings = () => {
     try {
       axios.delete(`/api/auth/destroy/${user.id}`);
       setUser({});
-      history.push("/");
+      history.push("/products");
     } catch (err) {
       console.log(err);
-    }
+    };
   };
 
   const updateUsername = (val) => {
@@ -52,10 +53,10 @@ const UserSettings = () => {
 
   return (
     <div className="settings-container">
-      <button
+      <Button1 
 				onClick={handleToggle}
 				>user settings
-			</button>
+			</Button1>
       {toggle ? (
         <div className="user-settings">
           <div className="input-container">
@@ -86,7 +87,7 @@ const UserSettings = () => {
             <button
               onClick={() => {
                 const confirmBox = window.confirm(
-                  "This will permanently delete your account, as well as any associated reviews and watchlist items. Are you sure?"
+                  "This will permanently delete your account. Are you sure?"
                 );
                 if (confirmBox) {
                   handleDelete();

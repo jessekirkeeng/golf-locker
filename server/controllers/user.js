@@ -26,7 +26,7 @@ login: async (req, res, next) => {
 if (!user) {
 	return res.status(401).send('No user');
 	}
-	// console.log(user, password)
+	
 	const isAuthenticated = bcrypt.compareSync(password, user.password);
 if (!isAuthenticated) {
 	return res.status(403).send('Incorrect password');
@@ -52,7 +52,6 @@ getUser: (req, res, next) => {
 }
 },
 getMe: (req, res) => {
-	
 	console.log(req.session)
 	const user = req.session.user;
   if (user) {

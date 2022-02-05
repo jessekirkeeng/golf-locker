@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Login.css';
 import { UserContext } from "./../Sample/Sample";
 import { Div, Input, Button, Button1, Title, Cont } from "../Utility/Styles";
+import User from '../Sample/User';
 
 const Login = props => {
 	const [user, setLocalUser] = useState({
@@ -51,6 +52,7 @@ const { setUser } = useContext(UserContext);
           <Button1 onClick={login}type='submit'>log in</Button1>
           <Button1 onClick={register}> register </Button1>
         </Button>
+          <User className='user-settings-button'/>
       </Cont>
 		</Div>
 	);

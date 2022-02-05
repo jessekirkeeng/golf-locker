@@ -1,3 +1,13 @@
+
+.user-settings-button {
+	border-radius: 1px;
+	background-color: #17ab6be9;
+	padding: 10px 20px;
+	border: 1px solid black;
+	cursor: pointer;
+	margin: 10px
+}
+
 @media (min-width: 500px){
 	.container {
 	border-radius: 8px;

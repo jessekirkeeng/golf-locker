@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
-const Btn = styled.button`
+export const Btn = styled.button`
 cursor: pointer;
 box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 padding: 5px 8px 5px 8px;

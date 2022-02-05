@@ -65,7 +65,7 @@ const Products = () => {
 				<Links className='linked'>
 					<MyBag className='btn-1' />
 					<NodeMail className='btn-1' />
-					<User className='btn-1' />
+					<User className='btn-1-user' />
 					<Logout className='btn-1' />
 				</Links>
 				<ProductMap className='map'>

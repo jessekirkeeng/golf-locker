@@ -5,11 +5,13 @@
 	color: white;
 	transition: all .5s ease;
 }
-.linked:hover {
-	/* background-color: #0c6d43e9;
+
+.btn-1-user:hover {
+	background-color: #0c6d43e9;
 	cursor: pointer;
 	color: white;
-	transition: all .5s ease; */
+	transition: all .5s ease;
+	padding-top: 20px;
 }
 .page {
 	color: white;
