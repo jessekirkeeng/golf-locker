@@ -1,53 +1,43 @@
-.settings-container {
-  margin-top: 3vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50vw;
+.box-one {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  width: 100%;
+	height: 100vh;
+	background-color: #064a2ce9;	
+	color: white;
 }
-.settings-container .user-settings {
-  margin: 3vh auto;
-  height: 40vh;
-  width: 30vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: #385a7785;
-  border: 2px solid black;
-  border-radius: 25px 10px;
-}
-.settings-container .input-container {
+
+.input-container {
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  width: 22vw;
-  height: 15vh;
-  padding: 1%;
-  border-bottom: 2px solid black;
+  padding: 15%;
+  
 }
-.settings-container .input-container .email-buttons {
-  display: flex;
-  justify-content: space-evenly;
-  width: 15vw;
-}
-.settings-container .input-container .email-buttons button {
-  height: 4vh;
-  width: 6vw;
-}
-.settings-container .input-container .email-buttons button:active {
-  background-color: #ff4d4d;
-  color: white;
-}
-.settings-container .input-container input {
+
+input {
   height: 4vh;
   width: 15vw;
   border: 2px solid black;
   margin: 0 auto;
   text-align: center;
 }
-.settings-container .delete-account button:active {
-  background-color: #ff4d4d;
-  color: white;
+
+@media (min-width: 500px){
+  .box-two {
+	border-radius: 8px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.35);
+  background-color: #0a613ce9;
+  width: 455px;
+  height: 55vh;
+	}
+}
+
+@media (min-width: 800px){
+	.box-two {
+		width: 650px;
+		height: 65vh;
+	}
 }

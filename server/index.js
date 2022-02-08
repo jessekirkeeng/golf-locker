@@ -28,7 +28,6 @@ const {
 const{
   deleteUser,
   updateUsername,
-  removeUsername,
 } = require('./controllers/auth');
 
 const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env;
@@ -45,8 +44,8 @@ massive({
 
 app.use(
 	session({
-		resave: true,
-		saveUninitialized: false,
+		resave: false,
+		saveUninitialized: true,
 		secret: SESSION_SECRET,
 		cookie: { maxAge:  60000 * 60 * 24 * 90}
 })
@@ -103,7 +102,6 @@ app.put('/api/custom/setting/:id', changeSetting);
 app.delete('/api/customDelete/:id/:item', deleteItem);
 app.delete("/api/auth/destroy/:id", deleteUser);
 app.put("/api/auth/update/:id", updateUsername);
-app.put("/api/auth/remove/:id", removeUsername);
 
 
 const port = process.env.PORT || 3030;

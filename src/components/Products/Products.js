@@ -4,9 +4,8 @@ import { useDispatch } from "react-redux";
 import { ACTIONS } from "../../redux/reducer";
 import { UserContext } from "./../Sample/Sample";
 import './Product.css';
-import { NodeMail, MyBag, Logout,  } from "../Utility/Links";
+import { NodeMail, MyBag, Logout, Cust,  } from "../Utility/Links";
 import { Items, Img, Driver, Links, ProductMap, Btnmap, H2 } from "../Utility/Styles";
-import User from '../Sample/User';
 
 const Products = () => {
 	const { user } = useContext(UserContext);
@@ -65,7 +64,7 @@ const Products = () => {
 				<Links className='linked'>
 					<MyBag className='btn-1' />
 					<NodeMail className='btn-1' />
-					<User className='btn-1-user' />
+					<Cust className='btn-1-user' />
 					<Logout className='btn-1' />
 				</Links>
 				<ProductMap className='map'>
