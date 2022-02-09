@@ -4,9 +4,9 @@ import Login from './components/Login/Login';
 import Products from './components/Products/Products';
 import Bag from './components/Bag/Bag';
 import Stripe from './components/Stripe/Stripe';
-import Custom from './components/Custom/Custom';
 import NodeMailer from './components/NodeMailer/NodeMailer';
 import User from './components/Sample/User';
+// import Custom from './components/Custom/Custom';
 
 export default (
 	<Switch>
