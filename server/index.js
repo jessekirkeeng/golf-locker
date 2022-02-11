@@ -52,7 +52,7 @@ app.use(
 );
 app.use(express.json());
 
-app.use(express.static(`${__dirname}/../build/static`))
+app.use(express.static(`${__dirname}/../build`))
 
 //*  Node Mailer  &  Stripe
 app.post('/api/nodeMailer', main);
