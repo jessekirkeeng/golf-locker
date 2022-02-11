@@ -10,11 +10,11 @@ import UserProvider from './components/Sample/Sample';
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      {/* <UserProvider> */}
+      <UserProvider>
         <Provider store={store}>
           <App />
         </Provider>
-      {/* </UserProvider> */}
+      </UserProvider>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
