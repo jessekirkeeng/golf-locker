@@ -52,7 +52,6 @@ getUser: (req, res, next) => {
 }
 },
 getMe: (req, res) => {
-	console.log(req.session)
 	const user = req.session.user;
   if (user) {
     res.status(200).send(user);
