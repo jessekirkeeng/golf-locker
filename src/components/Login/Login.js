@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import axios from 'axios';
 import './Login.css';
-import { UserContext } from "./../Sample/Sample";
+import { MyContext } from "../Sample/Sample";
 import { Div, Input, Button, Button1, Title, Cont } from "../Utility/Styles";
 
 const Login = props => {
@@ -9,7 +9,7 @@ const Login = props => {
     username: '',
     password: ''
   });
-  const { setUser } = useContext(UserContext);
+  const { setUser } = useContext(MyContext);
 
   const login = () =>
     axios.post('/api/auth/login', user)
