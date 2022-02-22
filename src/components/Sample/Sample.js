@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
-export const UserContext = React.createContext({});
+export const MyContext = React.createContext({});
 
 export const useUserContext = () => {
-  return useContext(UserContext);
+  return useContext(MyContext);
 };
 
 const UserProvider = ({ children }) => {
@@ -19,9 +19,9 @@ const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <MyrContext.Provider value={{ user, setUser }}>
       {children}
-    </UserContext.Provider>
+    </MyrContext.Provider>
   );
 };
 

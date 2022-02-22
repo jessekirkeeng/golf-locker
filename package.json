@@ -15,7 +15,6 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "gh-pages": "3.2.3",
     "massive": "^6.10.2",
     "nodemailer": "^6.7.1",
     "react": "^17.0.2",
@@ -64,7 +63,9 @@
   "proxy": "http://localhost:3030",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "gh-pages": "3.2.3"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
