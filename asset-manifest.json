@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/golf-locker/static/css/main.1cb03f60.chunk.css",
-    "main.js": "/golf-locker/static/js/main.86024acf.chunk.js",
-    "main.js.map": "/golf-locker/static/js/main.86024acf.chunk.js.map",
+    "main.js": "/golf-locker/static/js/main.c7762f8d.chunk.js",
+    "main.js.map": "/golf-locker/static/js/main.c7762f8d.chunk.js.map",
     "runtime-main.js": "/golf-locker/static/js/runtime-main.74415210.js",
     "runtime-main.js.map": "/golf-locker/static/js/runtime-main.74415210.js.map",
-    "static/js/2.2847b841.chunk.js": "/golf-locker/static/js/2.2847b841.chunk.js",
-    "static/js/2.2847b841.chunk.js.map": "/golf-locker/static/js/2.2847b841.chunk.js.map",
+    "static/js/2.c13ca0af.chunk.js": "/golf-locker/static/js/2.c13ca0af.chunk.js",
+    "static/js/2.c13ca0af.chunk.js.map": "/golf-locker/static/js/2.c13ca0af.chunk.js.map",
     "index.html": "/golf-locker/index.html",
     "static/css/main.1cb03f60.chunk.css.map": "/golf-locker/static/css/main.1cb03f60.chunk.css.map",
-    "static/js/2.2847b841.chunk.js.LICENSE.txt": "/golf-locker/static/js/2.2847b841.chunk.js.LICENSE.txt"
+    "static/js/2.c13ca0af.chunk.js.LICENSE.txt": "/golf-locker/static/js/2.c13ca0af.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.74415210.js",
-    "static/js/2.2847b841.chunk.js",
+    "static/js/2.c13ca0af.chunk.js",
     "static/css/main.1cb03f60.chunk.css",
-    "static/js/main.86024acf.chunk.js"
+    "static/js/main.c7762f8d.chunk.js"
   ]
 }
