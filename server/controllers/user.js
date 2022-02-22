@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+// let history = useNavigate(); 
 
 module.exports = {
 	register: async (req, res, next) => {

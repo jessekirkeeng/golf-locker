@@ -1,5 +1,5 @@
 require("dotenv").config();
-const stripe = require('stripe')('pk_live_51Jy0FOCxHd9pz0yuEw0uswQzeXmGWGLoNTtNfzmidTF1yTzmhbzyYAGIzYNH4ovP5s269SyHoA1WwzNGURT8Iku200U7VKpqAq');
+const stripe = require('stripe')(process.env.STRIPE_KEY);
 const express = require('express');
 const massive = require("massive");
 const session = require("express-session");
@@ -30,7 +30,7 @@ const{
   updateUsername,
 } = require('./controllers/auth');
 
-const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env;
+const { SESSION_SECRET, PORT, CONNECTION_STRING } = process.env;
 
 const app = express();
 
@@ -53,6 +53,10 @@ app.use(
 app.use(express.json());
 
 app.use(express.static(`${__dirname}/../build`))
+
+app.get('/', function (req, res) {
+  res.sendFile(`${__dirname}/../build`, 'index.html');
+});
 
 //*  Node Mailer  &  Stripe
 app.post('/api/nodeMailer', main);
@@ -104,6 +108,6 @@ app.delete("/api/auth/destroy/:id", deleteUser);
 app.put("/api/auth/update/:id", updateUsername);
 
 
-const port = process.env.PORT || 3030;
+const port = PORT || 3030;
 
 app.listen(port, () => console.log(`${port}`));

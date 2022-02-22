@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { UserContext } from "./../Sample/Sample";
+import { MyContext } from "./../Sample/Sample";
 import { ACTIONS } from "../../redux/reducer";
 import axios from 'axios';
 import './Bag.css';
@@ -8,7 +8,7 @@ import { Cust, NodeMail, Logout, Drivers } from '../Utility/Links';
 import { Items, Img, Driver, Links, ProductMap, Btnmap, H2 } from "../Utility/Styles";
 
 const Bag = () => {
-	const { user } = useContext(UserContext);
+	const { user } = useContext(MyContext);
 	const selector = useSelector(state => state.items);
 	const dispatch = useDispatch();
 

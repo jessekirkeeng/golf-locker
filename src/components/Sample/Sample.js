@@ -19,9 +19,9 @@ const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <MyrContext.Provider value={{ user, setUser }}>
+    <MyContext.Provider value={{ user, setUser }}>
       {children}
-    </MyrContext.Provider>
+    </MyContext.Provider>
   );
 };
 

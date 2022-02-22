@@ -1,31 +1,44 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import './Login.css';
 import { MyContext } from "../Sample/Sample";
 import { Div, Input, Button, Button1, Title, Cont } from "../Utility/Styles";
 
-const Login = props => {
+const Login = () => {
   const [user, setLocalUser] = useState({
     username: '',
     password: ''
   });
   const { setUser } = useContext(MyContext);
+  let history = useNavigate();
 
-  const login = () =>
-    axios.post('/api/auth/login', user)
+
+  const login = () => {
+    try {
+      axios.post('/api/auth/login', user)
       .then(res => {
         setUser(res.data);
-        props.history.push('./products')
       })
-      .catch(err => console.log(err));
+      history('./products')
+    }
+      catch(err) {
+        console.log(err);
+      }
+    }
 
-  const register = () =>
+  const register = () =>{
+    try {
     axios.post('/api/auth/register', user)
       .then(res => {
         setUser(res.data);
-        props.history.push('./products')
       })
-      .catch(err => console.log(err));
+      history('./products')
+    }
+      catch(err) {
+        console.log(err);
+      }
+    }
 
   return (
     <Div>

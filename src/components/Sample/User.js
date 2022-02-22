@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
-import { UserContext } from "./Sample";
-import { useHistory } from "react-router-dom";
+import { MyContext } from "./Sample";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import '../CSS/User.css';
 import { Button, Button1, H2, Input, } from "../Utility/Styles";
@@ -9,10 +9,8 @@ import { Button, Button1, H2, Input, } from "../Utility/Styles";
 const UserSettings = () => {
 
 	const [username, setUsername] = useState("");
-	const { user, setUser } = useContext(UserContext);
-	let history = useHistory();
-
-	
+	const { user, setUser } = useContext(MyContext);
+	let history = useNavigate();
 
 	const handleDelete = () => {
 		try {
@@ -39,7 +37,6 @@ const UserSettings = () => {
 			console.log(err);
 		}
 	};
-
 
 	return (
 		<div className="box-one">
@@ -69,11 +66,8 @@ const UserSettings = () => {
 						delete 
 					</Button1>
 				</Button>
-									</div>
-	
-
+				</div>
 			</div>
-			
 		</div>
 	);
 };

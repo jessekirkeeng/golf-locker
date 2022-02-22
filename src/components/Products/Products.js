@@ -2,13 +2,13 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { ACTIONS } from "../../redux/reducer";
-import { UserContext } from "./../Sample/Sample";
+import { MyContext } from "./../Sample/Sample";
 import './Product.css';
 import { NodeMail, MyBag, Logout, Cust,  } from "../Utility/Links";
 import { Items, Img, Driver, Links, ProductMap, Btnmap, H2 } from "../Utility/Styles";
 
 const Products = () => {
-	const { user } = useContext(UserContext);
+	const { user } = useContext(MyContext);
 	const [irons, setIrons] = useState([]);
 	const dispatch = useDispatch();
 

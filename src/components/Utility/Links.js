@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
 export const Btn = styled.button`
@@ -61,16 +61,14 @@ export const NodeMail = () => {
 	);
 };
 
-export const Logout = (props) => {
+export const Logout = () => {
 
-	let req = axios.post('/api/auth/logout')
-		.then(res => props.history.push('./'))
-		.catch(err => console.log(err));
+		let info = axios.post("/api/auth/logout")
 
 	return (
 		<>
 			<div>
-				<Link to='/'><Btn onClick={req}>logout</Btn></Link>
+				<Link to='/'><Btn onClick={info}>logout</Btn></Link>
 			</div>
 		</>
 	)};
